@@ -1,0 +1,35 @@
+{
+  "name": "ucarsolutions/laminas-uri-signer",
+  "description": "A Laminas/Mezzio module for using ucarsolutions/uri-signer, a minimal package for securely signing PSR-15 URIs in PHP applications.",
+  "type": "library",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "UcarSolutions\\LaminasUriSigner\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Doğan Uçar",
+      "email": "dogan@dogan-ucar.de"
+    }
+  ],
+  "minimum-stability": "stable",
+  "require": {
+    "ucarsolutions/uri-signer": "^1.0",
+    "laminas/laminas-servicemanager": "^4.2",
+    "psr/http-server-middleware": "^1.0",
+    "laminas/laminas-diactoros": "^3.3"
+  },
+  "require-dev": {
+    "phpstan/phpstan": "^1.12",
+    "phpunit/phpunit": "^11.3"
+  },
+  "scripts": {
+    "phpstan": "./vendor/bin/phpstan analyse -c phpstan.neon src/ test/ --level 9 --memory-limit=2G",
+    "test": [
+      "Composer\\Config::disableProcessTimeout",
+      "./vendor/bin/phpunit test -d memory_limit=-1"
+    ]
+  }
+}
